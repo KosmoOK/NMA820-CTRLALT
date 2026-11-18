@@ -15,16 +15,17 @@ public class GameMaster : MonoBehaviour
     public Vector3[][] vectorRows;
 
     [SerializeField] public KeyCode[][] keyRows; // Damn doesnt serialize gotta jump the faith here (What does that even mean bro)
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // I DONT CARE THIS IS A BAD IMPLEMENTATION I JUST WANT THIS FINISHED
-        KeyCode[] keyRow1 = {KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9, KeyCode.Alpha0, KeyCode.Minus, KeyCode.Equals};
-        KeyCode[] keyRow2 = {KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R, KeyCode.T, KeyCode.Y, KeyCode.U, KeyCode.I, KeyCode.O, KeyCode.P, KeyCode.LeftBracket, KeyCode.RightBracket, KeyCode.Backslash};
-        KeyCode[] keyRow3 = {KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.Semicolon, KeyCode.Quote, KeyCode.Return};
-        KeyCode[] keyRow4 = {KeyCode.Z, KeyCode.X, KeyCode.C, KeyCode.V, KeyCode.B, KeyCode.N, KeyCode.M, KeyCode.Comma, KeyCode.Period, KeyCode.Slash, KeyCode.RightShift};
-        KeyCode[] keyRow5 = {KeyCode.LeftControl, KeyCode.LeftWindows, KeyCode.LeftAlt, KeyCode.Space, KeyCode.RightAlt, KeyCode.RightWindows, KeyCode.Menu};
+        KeyCode[] keyRow1 = new KeyCode[] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9, KeyCode.Alpha0, KeyCode.Minus, KeyCode.Equals};
+        KeyCode[] keyRow2 = new KeyCode[] { KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R, KeyCode.T, KeyCode.Y, KeyCode.U, KeyCode.I, KeyCode.O, KeyCode.P, KeyCode.LeftBracket, KeyCode.RightBracket, KeyCode.Backslash};
+        KeyCode[] keyRow3 = new KeyCode[] { KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.Semicolon, KeyCode.Quote, KeyCode.Return};
+        KeyCode[] keyRow4 = new KeyCode[] { KeyCode.Z, KeyCode.X, KeyCode.C, KeyCode.V, KeyCode.B, KeyCode.N, KeyCode.M, KeyCode.Comma, KeyCode.Period, KeyCode.Slash, KeyCode.RightShift};
+        KeyCode[] keyRow5 = new KeyCode[] { KeyCode.LeftControl, KeyCode.LeftWindows, KeyCode.LeftAlt, KeyCode.Space, KeyCode.RightAlt, KeyCode.RightWindows, KeyCode.Menu};
+        Debug.Log(keyRow1);
 
         // Ping pong ding dong
         keyRows.Append(keyRow1);
