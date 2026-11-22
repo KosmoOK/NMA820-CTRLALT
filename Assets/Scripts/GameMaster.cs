@@ -14,6 +14,8 @@ public class GameMaster : MonoBehaviour
     public Vector3[] row5;
     public Vector3[][] vectorRows;
 
+    public KidNamedFinger finger;
+
     [SerializeField] public KeyCode[][] keyRows; // Damn doesnt serialize gotta jump the faith here (What does that even mean bro)
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
