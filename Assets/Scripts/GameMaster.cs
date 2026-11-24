@@ -1,8 +1,10 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class GameMaster : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class GameMaster : MonoBehaviour
     public Vector3[] row4;
     public Vector3[] row5;
     public Vector3[][] vectorRows;
+
+    public Ant ant1;
 
     public KidNamedFinger finger;
 
@@ -42,6 +46,8 @@ public class GameMaster : MonoBehaviour
         vectorRows.Append(row3);
         vectorRows.Append(row4);
         vectorRows.Append(row5);
+
+        StartCoroutine(SpawnCoroutine());
     }
 
     // Update is called once per frame
@@ -67,4 +73,17 @@ public class GameMaster : MonoBehaviour
 
         return Vector3.zero;
     }
+
+    public IEnumerator SpawnCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        Ant newAnt = new Ant();
+        Vector3[] possiblePositions = {new Vector3(7.61999989f,1.76999998f,0), new Vector3(7.61999989f,1.00999999f,0), new Vector3(7.61999989f,0.270000011f,0), new Vector3(7.61999989f,-0.660000026f,0), new Vector3(7.61999989f,-1.57000005f,0)}; 
+        
+        int randNum = UnityEngine.Random.Range(0, possiblePositions.Length);
+        newAnt.row = randNum;
+        Vector3 pos = possiblePositions[randNum];
+
+        Instantiate(new Ant(), pos, new Quaternion());
+    } 
 }

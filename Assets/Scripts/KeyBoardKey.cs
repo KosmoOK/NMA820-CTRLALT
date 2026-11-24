@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class KeyBoardKey : MonoBehaviour
 {
     public KeyCode key;
+    public int row;
     public GameMaster gm; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,9 +16,10 @@ public class KeyBoardKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(key) && gm.finger.isSquishing)
+        if (Input.GetKeyDown(key) && !gm.finger.isSquishing)
         {
-            gm.finger.transform.position = transform.position;
+            Debug.Log("SUPER!"); // GENUINLY why doesnt this work
+            StartCoroutine(gm.finger.SquishCoroutine(transform.position, row));
         }
     }
     public void OnCollisionEnter2D(Collision2D collision)

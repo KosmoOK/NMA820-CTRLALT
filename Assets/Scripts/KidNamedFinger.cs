@@ -10,7 +10,8 @@ public class KidNamedFinger : MonoBehaviour
     public bool isSquishing = false;
     public AnimationCurve squishCurve = AnimationCurve.Linear(0,1,1,1);
     public float squishSpeedMult = 1f;
-    public float startHeight = 100f;
+    public float startHeight = 20f;
+    private float currentRow = -1;
 
     private CircleCollider2D collider; 
 
@@ -51,25 +52,48 @@ public class KidNamedFinger : MonoBehaviour
     public void Squish(Collision2D collision)
     {
         Debug.Log("Beeboop!");
-        if(collision.gameObject.TryGetComponent<Ant>(out Ant ant) && ant.transform.position.y < transform.position.y)
+        if(collision.gameObject.TryGetComponent<Ant>(out Ant ant) && currentRow == ant.row) //&& ant.transform.position.y < transform.position.y NOT USED
         {
             ant.Squish();
         }
     }
-    public IEnumerator SquishCoroutine(Vector3 location, float speedMult)
+    public IEnumerator SquishCoroutine(Vector3 targetLocation, int row)
     {
-        // Add starting heigh position and turn off collider
-        collider.enabled = false;
-
-        for(float i = transform.position.y; i < location.y; i += speedMult * Time.deltaTime)
+        if (!isSquishing)
         {
-            // Use similar curve evaluation to SquishCoroutine
-            transform.position = new(transform.position.x, i, transform.position.z);
-            yield return new WaitForEndOfFrame();
+            currentRow = row;
+
+            // Add starting height position and turn off collider
+            collider.enabled = false;
+            isSquishing = true;
+            Debug.Log(transform.position.y + startHeight);
+            transform.position = new(transform.position.x, transform.position.y + startHeight, transform.position.z);
+
+            // Move Downwards
+            for(float i = transform.position.y; i < targetLocation.y; i -= squishSpeedMult * Time.deltaTime)
+            {
+                // Use similar curve evaluation to SquishCoroutine
+                transform.position = new(transform.position.x, i, transform.position.z);
+                yield return new WaitForEndOfFrame();
+            }
+
+            // Turn on collider
+            collider.enabled = true;
+            transform.position = targetLocation;
+            yield return new WaitForSeconds(0.5f);
+
+            // Move Upwards
+            for(float i = transform.position.y; i > targetLocation.y; i += squishSpeedMult * Time.deltaTime)
+            {
+                // Use similar curve evaluation to SquishCoroutine
+                transform.position = new(transform.position.x, i, transform.position.z);
+                yield return new WaitForEndOfFrame();
+            }
+
+            collider.enabled = false;
+            isSquishing = false;
+            currentRow = -1;
         }
-        // Turn on collider
-        collider.enabled = true;
-        transform.position = location;
     } 
 
 }

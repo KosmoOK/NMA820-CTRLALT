@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public class Ant : MonoBehaviour
 {
+    public int row = 0;
     public float stopPositionX = -5.25f;
     public float multiplier = 1f;
     public Vector2 moveRandomness = new Vector2(0.5f, 1.5f);
@@ -41,7 +42,7 @@ public class Ant : MonoBehaviour
             transform.localScale = new Vector3(originalScale.x / squishCurve.Evaluate(i), originalScale.y * squishCurve.Evaluate(i), 1);
             yield return new WaitForEndOfFrame();
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         
         Destroy(gameObject);
     }
