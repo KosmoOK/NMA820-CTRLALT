@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2d7bc94736dfe0f48951717cd372cf9d
+guid: 0e01663e1abd9884ca5db7b55236f602
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8381395614764132288
-    second: ezgif-4f7066c892382515_0
+      213: -3141993741729950664
+    second: backgorund-ezgif.com-gif-to-sprite-converter_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ezgif-4f7066c892382515_0
+      name: backgorund-ezgif.com-gif-to-sprite-converter_0
       rect:
         serializedVersion: 2
-        x: 93
-        y: 81
-        width: 228
-        height: 90
+        x: 0
+        y: 0
+        width: 1066
+        height: 261
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 04897fb481d4fab80800000000000000
-      internalID: -8381395614764132288
+      spriteID: 8349fa1c6556564d0800000000000000
+      internalID: -3141993741729950664
       vertices: []
       indices: 
       edges: []
@@ -137,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ezgif-4f7066c892382515_0: -8381395614764132288
+      backgorund-ezgif.com-gif-to-sprite-converter_0: -3141993741729950664
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

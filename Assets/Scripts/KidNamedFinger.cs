@@ -14,6 +14,8 @@ public class KidNamedFinger : MonoBehaviour
     private float currentRow = -1;
 
     private CircleCollider2D collider; 
+    public AnimationClip clip;
+    public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,7 +53,6 @@ public class KidNamedFinger : MonoBehaviour
 
     public void Squish(Collision2D collision)
     {
-        Debug.Log("Beeboop!");
         if(collision.gameObject.TryGetComponent<Ant>(out Ant ant) && currentRow == ant.row) //&& ant.transform.position.y < transform.position.y NOT USED
         {
             ant.Squish();
@@ -62,11 +63,11 @@ public class KidNamedFinger : MonoBehaviour
         if (!isSquishing)
         {
             currentRow = row;
+            animator.Play(0, -1, 0f);
 
             // Add starting height position and turn off collider
             collider.enabled = false;
             isSquishing = true;
-            Debug.Log(transform.position.y + startHeight);
             transform.position = new(transform.position.x, transform.position.y + startHeight, transform.position.z);
 
             // Move Downwards

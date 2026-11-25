@@ -18,7 +18,6 @@ public class KeyBoardKey : MonoBehaviour
     {
         if (Input.GetKeyDown(key) && !gm.finger.isSquishing)
         {
-            Debug.Log("SUPER!"); // GENUINLY why doesnt this work
             StartCoroutine(gm.finger.SquishCoroutine(transform.position, row));
         }
     }
